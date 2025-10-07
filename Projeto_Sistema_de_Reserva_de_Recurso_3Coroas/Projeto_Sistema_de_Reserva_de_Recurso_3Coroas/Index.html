@@ -15,8 +15,10 @@
             <h1>Sistema de Reserva de Recursos</h1>
         </div>
         <div class="acoesNav">
-            <button class="botao" onclick="abrirLogin()">Entrar</button>
-            <button class="botao botaoPrimario" onclick="rolarParaRapido()">Nova reserva</button>
+            <!-- <button class="botao" onclick="abrirLogin()">Entrar</button>
+            <button class="botao botaoPrimario" onclick="rolarParaRapido()">Nova reserva</button> -->
+            <a href="#seclogin" class="botao">Entrar</a>
+            <a href="#secPesquisa" class="botao botaoPrimario">Nova Reserva</a>
         </div>
     </div>
    </header>
@@ -77,11 +79,77 @@
                 </p>
             </article>
         </section> 
+
+        <!-- SEÇOES FUNCIONAIS DO SPRINT 2 -->
+        <section id="secLogin" class="cartao" aria-labelledby="titLogin">
+            <h2 id="titLogin">Acesso</h2>
+            <form id="formLogin" class="grade">
+                <label>
+            <input id="campoUsuario" name="usuario" autocomplete="username" required>
+                </label>
+                <label>
+            <input id="campoSenha" name="senha"  type="password" autocomplete="current-password" required>
+                </label>
+                <button class="botao botaoPrimario" type="submit">Entrar</button>
+                <p class="textoMutado">Dica: qualquer usúario com senha de 3+ caracteres entra (simulação).</p>
+
+            </form>
+
+        </section>
+        <!-- SEÇÃO DE PESQUISA -SEPARAR CONSULTA DE DISPONIBILIDADE DA SOLICITAÇÃO -->
+        <section id="secPesquisa" class="cartao" aria-labelledby="titPesquisa">
+            <h2 id="titPesquisa">Pesquisar disponibilidade</h2>
+            <form id="formPesquisa" class="grade duas">
+                <label>
+                    Recurso
+                    <select name="recurso" id="campoRecurso" required>
+                        <option value="">Selecione...</option>
+                        <option>Laboratório 01</option>
+                        <option>Laboratório 02</option>
+                        <option>Projetor 4k</option>
+                        <option>Espaço de Reuniões</option>
+                    </select>
+                </label>
+                <label>
+                    Data
+                    <input id="campoData" name="data" type="date" required>
+                </label>
+                <label>
+                    Data
+                    <input id="campoHora" name="Hora" type="time" required>
+                </label>
+                <button class="botao botaoPrimario" type="submit">Pesquisar</button>
+            </form>
+        </section>
+
+<!-- SEÇÃO DE SOLICITAÇÃO - INSERIR RN
+    SE FOR PROFESSOR APROVADA AUTOMATICAMENTE A SOLICITAÇÃO -->
+    <section id="secSolicitar" class="cartao" aria-labelledby="titSolicitar">
+        <h2 id="titSolicitar">Solicitar reserva</h2>
+        <form action="" id="formSolicitar" class="grade">
+            <label>
+                Justificativa
+                <input id="campoJustificativa" name="justificativa" placeholder="Descreva o uso...">
+            </label>
+            <button class="botao botaoPrimeiro" type="submit">Solicitar</button>
+        </form>
+        <p class="textoMutado">RN4 (simulado): logins contendo "prof" recebem aprovação automáticamente</p>
+    </section>
+
+    <!-- SEÇÃO DE HÍSTORICO -->
+    <section id="secHistorico" class="cartao" aria-labelledby="titHistorico">
+        <h2 id="titHistorico">Minhas reservas</h2>
+        <ul id="listaReservas" class="lista" aria-label="polite"></ul>
+    </section>
+
         <footer>
     <div class="container"><small class="textoMutado">
-        Sprint 1 - Prototipagem de Interface (HTML/CSS).
-        Próximo: modelagem e persistência
-    </small></div>
+        Sprint 2- FLuxo funcional (login - pesquisa - Solicitação - histórico).
+        Próximo: modelagem e persistência 
+    </small>
+</div>
+    
+
    </footer>
 
    </main>
@@ -103,7 +171,7 @@
         </div>
     </form>
    </dialog>
-
+<!-- REGIÃO DE TOAST ACESSEVIL | NÃO BLOQUEANTE -->
    <div id="toast" class="toast" role="status" aria-live="polite"></div> 
 </body>
 </html>

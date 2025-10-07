@@ -225,3 +225,114 @@
       grid-template-columns: 1fr; 
     }
   }
+
+  /* SPRINT 02 | UTILITARIOS ADICIONADOS */
+
+.grade{
+  display: grid;
+  gap: 12px;
+}
+.grade.duas{
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 780px){
+  .grade.duas{
+    grid-template-columns: 1fr;
+  }
+}
+
+  /* GRADES PARA OS FORMULARIOS DAS SEÇÕES */
+  .lista{
+    list-style: none;
+    margin: 12px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+
+  .lista li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius:  12px;
+    background-color: #0b1220;
+    border: 1px solid rgba(148, 159, 184, .25);
+    color: var(--corTexto);
+  }
+
+  /* TOAST */
+
+  .toast{
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 9999;
+    min-width: 240px;
+    min-width: 360px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #0b1220;
+    color: var(--corTexto);
+    border: 1px solid rgba(148, 159, 184, .25);
+    border-left:  6px solid var(--corOk);
+    box-shadow: var(--sombra);
+    opacity: 0;
+    transform: translate(8px);
+    transition: opacity .25s ease, transform .25 ease , border-color .2 ease;
+    pointer-events: none;
+  }
+
+  .toast.visivel{
+    opacity: 1;
+    transform: translate(0) ;
+  }
+
+
+  .toast.warn{
+    border-left-color: orange;
+  }
+
+  .toast.err{
+    border-left-color: red ;
+  }
+/* 4) Link ativo no menu (acessibilidade/UX)
+
+.menu a[aria-current="true"]{
+  border-bottom: 2px solid currentColor;
+}
+
+/* 5) Ajustes de inputs/botões dentro das novas seções (compatível com seu tema) */
+#secLogin input, #secPesquisa input, #secPesquisa select, #secSolicitar input{
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: 12px;
+  background: #0b1220;
+  border: 1px solid rgba(148,163,184,.25);
+  color: var(--corTexto);
+}
+#secLogin input:focus,
+#secPesquisa input:focus,
+#secPesquisa select:focus,
+#secSolicitar input:focus{
+  outline: 2px solid var(--corMarca);
+  border-color: transparent;
+}
+
+/* 6) Cartão das novas seções reaproveita seu .cartao
+   - Se quiser um respiro entre elas: */
+#secLogin.cartao,
+#secPesquisa.cartao,
+#secSolicitar.cartao,
+#secHistorico.cartao{
+  margin-top: 18px;
+}
+
+/* 7) Botão primário já existe; aqui só garantimos consistência nas seções novas */
+#secLogin .botaoPrimario,
+#secPesquisa .botaoPrimario,
+#secSolicitar .botaoPrimario{
+  display: inline-block;
+  text-align: center;
+}
